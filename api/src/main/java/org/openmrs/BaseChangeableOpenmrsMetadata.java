@@ -18,7 +18,7 @@ import java.util.Date;
  */
 public abstract class BaseChangeableOpenmrsMetadata extends BaseOpenmrsMetadata {
 	
-		
+
 	/**
 	 * @see Auditable#setChangedBy(User)
 	 */
