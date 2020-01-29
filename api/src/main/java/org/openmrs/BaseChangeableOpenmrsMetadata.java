@@ -19,14 +19,6 @@ import java.util.Date;
 public abstract class BaseChangeableOpenmrsMetadata extends BaseOpenmrsMetadata {
 	
 	/**
-	 * @see Auditable#getChangedBy()
-	 */
-	@Override
-	public User getChangedBy() {
-		return super.getChangedBy();
-	}
-	
-	/**
 	 * @see Auditable#setChangedBy(User)
 	 */
 	@Override
@@ -35,11 +27,12 @@ public abstract class BaseChangeableOpenmrsMetadata extends BaseOpenmrsMetadata 
 	}
 	
 	/**
-	 * @see Auditable#getDateChanged()
+	 * @see Auditable#getChangedBy()
 	 */
+	@User
 	@Override
-	public Date getDateChanged() {
-		return super.getDateChanged();
+	public User getChangedBy() {
+		return super.getChangedBy();
 	}
 	
 	/**
@@ -49,4 +42,13 @@ public abstract class BaseChangeableOpenmrsMetadata extends BaseOpenmrsMetadata 
 	public void setDateChanged(Date dateChanged) {
 		super.setDateChanged(dateChanged);
 	}
+	/**
+	 * @see Auditable#getDateChanged()
+	 */
+	@Date
+	@Override
+	public Date getDateChanged() {
+		return super.getDateChanged();
+	}
+	
 }
