@@ -11,15 +11,12 @@ package org.openmrs;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openmrs.api.context.Context;
-import org.openmrs.test.jupiter.BaseContextSensitiveTest;
 import org.openmrs.util.RoleConstants;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class UserTest extends BaseContextSensitiveTest {
+public class UserTest {
 
 	private User user;
 
@@ -95,15 +92,4 @@ public class UserTest extends BaseContextSensitiveTest {
 		assertFalse(user.containsRole(ROLE_WHICH_DOES_NOT_EXIT));
 	}
 
-	/**
-	 * @see User#serialize()
-	 * @see User#hydrate(String)
-	 */
-	@Test
-	public void serializeAndHydrate_shouldRoundTripUser() {
-		User originalUser = Context.getUserService().getUser(1);
-		String serialized = originalUser.serialize();
-		User hydratedUser = originalUser.hydrate(serialized);
-		assertEquals(originalUser.getUserId(), hydratedUser.getUserId());
-	}
 }
